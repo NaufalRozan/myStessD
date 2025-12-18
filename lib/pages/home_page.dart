@@ -81,7 +81,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
       {
         'suggestion': 'Continue to maintain your resting time',
         'details':
-            'Tetap menjaga keseimbangan antara waktu kerja dan waktu istirahat penting untuk mencegah stres; ingat untuk meluangkan waktu untuk diri sendiri.'
+            'Maintaining a balance between work and rest is important to prevent stress; remember to take time for yourself.'
       },
       {
         'suggestion': 'Doing a Hobby',
