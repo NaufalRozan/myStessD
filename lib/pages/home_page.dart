@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:emotion_detection_app/constans.dart';
-import 'package:emotion_detection_app/pages/about_page.dart';
+import 'package:mystessd/constans.dart';
+import 'package:mystessd/pages/about_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_v2/tflite_v2.dart';
@@ -436,6 +436,18 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                         ),
                     ],
                   ),
+                SizedBox(height: 30),
+                Divider(thickness: 1, color: Colors.grey),
+                SizedBox(height: 10),
+                Text(
+                  '© ${DateTime.now().year} Universitas Muhammadiyah Yogyakarta',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),

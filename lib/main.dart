@@ -1,5 +1,5 @@
 import 'package:camera/camera.dart';
-import 'package:emotion_detection_app/pages/home_page.dart';
+import 'package:mystessd/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 List<CameraDescription>? cameras;

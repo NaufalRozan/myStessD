@@ -1,4 +1,4 @@
-import 'package:emotion_detection_app/constans.dart';
+import 'package:mystessd/constans.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
@@ -12,17 +12,27 @@ class _AboutPageState extends State<AboutPage> {
   // Contoh data untuk "Tentang Aplikasi"
   final List<Map<String, String>> about = [
     {
-      'suggestion': 'Application Version',
+      'suggestion': 'Nama Aplikasi',
+      'details': 'MyStessD - Stress Detection Application',
+    },
+    {
+      'suggestion': 'Versi Aplikasi',
       'details': '1.0.0',
     },
     {
-      'suggestion': 'Contact',
-      'details': 'Email: naufall.rozan@gmail.com',
+      'suggestion': 'Dikembangkan Oleh',
+      'details':
+          'Slamet Riyadi, Cahya Damarjati, dan Tim Pengembang',
     },
     {
-      'suggestion': 'About',
+      'suggestion': 'Institusi',
       'details':
-          "This application utilizes a modified Convolutional Neural Network (CNN) to detect stress through facial expressions, with the hope of increasing individuals' awareness of their own stress levels.",
+          'Program Studi Teknologi Informasi bekerja sama dengan Artificial Intelligence and Robotics Research Group\nUniversitas Muhammadiyah Yogyakarta',
+    },
+    {
+      'suggestion': 'Tentang Aplikasi',
+      'details':
+          "Aplikasi ini memanfaatkan Convolutional Neural Network (CNN) yang telah dimodifikasi untuk mendeteksi stres melalui ekspresi wajah, dengan harapan dapat meningkatkan kesadaran individu terhadap tingkat stres mereka sendiri.",
     },
     {
       'suggestion': 'Dataset',
@@ -30,9 +40,13 @@ class _AboutPageState extends State<AboutPage> {
           'Stress Face Dataset',
     },
     {
-      'suggestion': 'Reference Suggestions',
+      'suggestion': 'Kontak',
+      'details': 'Email: naufall.rozan@gmail.com',
+    },
+    {
+      'suggestion': 'Referensi Saran',
       'details':
-          'The suggestions provided are drawn from reputable journals.',
+          'Saran-saran yang diberikan diambil dari jurnal-jurnal terpercaya.',
     },
   ];
   final List<Map<String, String>> referensi = [
@@ -121,6 +135,33 @@ class _AboutPageState extends State<AboutPage> {
                 Container(
                   child: _buildPanelReferensi(),
                 ),
+                SizedBox(height: 30),
+                Divider(thickness: 1, color: Colors.grey),
+                SizedBox(height: 10),
+                Text(
+                  '© ${DateTime.now().year} Universitas Muhammadiyah Yogyakarta',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 12,
+                    fontStyle: FontStyle.italic,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Program Studi Teknologi Informasi',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 11,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Artificial Intelligence and Robotics Research Group',
+                  style: secondaryTextStyle.copyWith(
+                    fontSize: 11,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 20),
               ],
             ),
           ),

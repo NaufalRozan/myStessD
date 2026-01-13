@@ -1,0 +1,2 @@
+/Users/macbookpro/Project/Personal/myStessD/android/app/.cxx/RelWithDebInfo/34h562g1/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/macbookpro/Project/Personal/myStessD/android/app/.cxx/RelWithDebInfo/34h562g1/armeabi-v7a/CMakeFiles/rebuild_cache.dir
