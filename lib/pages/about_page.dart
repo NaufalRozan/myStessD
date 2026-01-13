@@ -21,8 +21,7 @@ class _AboutPageState extends State<AboutPage> {
     },
     {
       'suggestion': 'Dikembangkan Oleh',
-      'details':
-          'Slamet Riyadi, Cahya Damarjati, dan Tim Pengembang',
+      'details': 'Slamet Riyadi, Cahya Damarjati, dan Tim Pengembang',
     },
     {
       'suggestion': 'Institusi',
@@ -36,8 +35,7 @@ class _AboutPageState extends State<AboutPage> {
     },
     {
       'suggestion': 'Dataset',
-      'details':
-          'Stress Face Dataset',
+      'details': 'Stress Face Dataset',
     },
     {
       'suggestion': 'Kontak',
