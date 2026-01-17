@@ -1,0 +1,245 @@
+{
+  "@@locale": "en",
+  "appTitle": "MyStessD",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "checkStress": "Check Stress",
+  "@checkStress": {
+    "description": "Title for stress checking page"
+  },
+  "chooseMethod": "Choose a method",
+  "@chooseMethod": {
+    "description": "Dialog title for method selection"
+  },
+  "uploadPhoto": "Upload a Photo",
+  "@uploadPhoto": {
+    "description": "Button to upload photo from gallery"
+  },
+  "takePhoto": "Take a Photo",
+  "@takePhoto": {
+    "description": "Button to take photo with camera"
+  },
+  "predictionResult": "Prediction of your face: {result}",
+  "@predictionResult": {
+    "description": "Shows the prediction result",
+    "placeholders": {
+      "result": {
+        "type": "String",
+        "example": "Stress"
+      }
+    }
+  },
+  "accuracyResult": "With accuracy: {accuracy}%",
+  "@accuracyResult": {
+    "description": "Shows the accuracy percentage",
+    "placeholders": {
+      "accuracy": {
+        "type": "String",
+        "example": "95.50"
+      }
+    }
+  },
+  "suggestion": "Suggestion:",
+  "@suggestion": {
+    "description": "Label for suggestions section"
+  },
+  "faceNotDetected": "Face not detected",
+  "@faceNotDetected": {
+    "description": "Message when face is not detected"
+  },
+  "aboutApp": "About the Application",
+  "@aboutApp": {
+    "description": "About page title"
+  },
+  "referenceSuggestions": "Reference Suggestions",
+  "@referenceSuggestions": {
+    "description": "Reference suggestions title"
+  },
+  "copyright": "© {year} Universitas Muhammadiyah Yogyakarta",
+  "@copyright": {
+    "description": "Copyright text",
+    "placeholders": {
+      "year": {
+        "type": "String",
+        "example": "2024"
+      }
+    }
+  },
+  "informationTechnologyProgram": "Program Studi Teknologi Informasi",
+  "@informationTechnologyProgram": {
+    "description": "Information Technology Program"
+  },
+  "aiRoboticsGroup": "Artificial Intelligence and Robotics Research Group",
+  "@aiRoboticsGroup": {
+    "description": "AI and Robotics Research Group"
+  },
+  "stressed": "Stress",
+  "@stressed": {
+    "description": "Stress status"
+  },
+  "notStressed": "Not Stressed",
+  "@notStressed": {
+    "description": "Not stressed status"
+  },
+  "breathingWell": "Breathing Well",
+  "@breathingWell": {
+    "description": "Breathing suggestion title"
+  },
+  "breathingWellDetails": "Take a moment to breathe deeply; focus on your breath for a few minutes to help calm the mind.",
+  "@breathingWellDetails": {
+    "description": "Breathing suggestion details"
+  },
+  "shortMeditation": "Short Meditation",
+  "@shortMeditation": {
+    "description": "Meditation suggestion title"
+  },
+  "shortMeditationDetails": "Take some time to try a short meditation or mindfulness practice; it can reduce stress and enhance mental clarity.",
+  "@shortMeditationDetails": {
+    "description": "Meditation suggestion details"
+  },
+  "physicalActivity": "Engage in physical activity",
+  "@physicalActivity": {
+    "description": "Physical activity suggestion title"
+  },
+  "physicalActivityDetails": "Physical activity is key to reducing stress; a short walk or a yoga session can help relax the body and mind.",
+  "@physicalActivityDetails": {
+    "description": "Physical activity suggestion details"
+  },
+  "socializing": "Socializing with Others",
+  "@socializing": {
+    "description": "Socializing suggestion title"
+  },
+  "socializingDetails": "Talking to friends or family can provide the emotional support you need to feel better.",
+  "@socializingDetails": {
+    "description": "Socializing suggestion details"
+  },
+  "maintainRest": "Continue to maintain your resting time",
+  "@maintainRest": {
+    "description": "Rest time suggestion title"
+  },
+  "maintainRestDetails": "Maintaining a balance between work and rest is important to prevent stress; remember to take time for yourself.",
+  "@maintainRestDetails": {
+    "description": "Rest time suggestion details"
+  },
+  "doingHobby": "Doing a Hobby",
+  "@doingHobby": {
+    "description": "Hobby suggestion title"
+  },
+  "doingHobbyDetails": "Engaging in hobbies or activities that you enjoy can serve as a means of distraction from the daily pressures.",
+  "@doingHobbyDetails": {
+    "description": "Hobby suggestion details"
+  },
+  "relaxation": "Relaxation",
+  "@relaxation": {
+    "description": "Relaxation suggestion title"
+  },
+  "relaxationDetails": "Even if you may not feel stressed at the moment, regular relaxation practices such as yoga can help maintain peace of mind.",
+  "@relaxationDetails": {
+    "description": "Relaxation suggestion details"
+  },
+  "learningStressManagement": "Learning to Manage Stress",
+  "@learningStressManagement": {
+    "description": "Stress management suggestion title"
+  },
+  "learningStressManagementDetails": "Education about stress and how to manage it can help you stay calm in challenging situations in the future.",
+  "@learningStressManagementDetails": {
+    "description": "Stress management suggestion details"
+  },
+  "appName": "Application Name",
+  "@appName": {
+    "description": "Application name label"
+  },
+  "appNameValue": "MyStessD - Stress Detection Application",
+  "@appNameValue": {
+    "description": "Application name value"
+  },
+  "appVersion": "Application Version",
+  "@appVersion": {
+    "description": "Application version label"
+  },
+  "appVersionValue": "1.0.0",
+  "@appVersionValue": {
+    "description": "Application version value"
+  },
+  "developedBy": "Developed By",
+  "@developedBy": {
+    "description": "Developed by label"
+  },
+  "developedByValue": "Slamet Riyadi, Cahya Damarjati, and Naufal Rozan",
+  "@developedByValue": {
+    "description": "Developers names"
+  },
+  "institution": "Institution",
+  "@institution": {
+    "description": "Institution label"
+  },
+  "institutionValue": "Information Technology Study Program in collaboration with Artificial Intelligence and Robotics Research Group\nUniversitas Muhammadiyah Yogyakarta",
+  "@institutionValue": {
+    "description": "Institution value"
+  },
+  "aboutApplication": "About the Application",
+  "@aboutApplication": {
+    "description": "About application label"
+  },
+  "aboutApplicationValue": "This application utilizes a modified Convolutional Neural Network (CNN) to detect stress through facial expressions, with the hope of increasing individual awareness of their stress levels.",
+  "@aboutApplicationValue": {
+    "description": "About application description"
+  },
+  "dataset": "Dataset",
+  "@dataset": {
+    "description": "Dataset label"
+  },
+  "datasetValue": "Stress Face Dataset",
+  "@datasetValue": {
+    "description": "Dataset value"
+  },
+  "contact": "Contact",
+  "@contact": {
+    "description": "Contact label"
+  },
+  "contactValue": "Email: naufall.rozan@gmail.com",
+  "@contactValue": {
+    "description": "Contact value"
+  },
+  "referenceSource": "Suggestion References",
+  "@referenceSource": {
+    "description": "Reference source label"
+  },
+  "referenceSourceValue": "The suggestions provided are taken from trusted journals.",
+  "@referenceSourceValue": {
+    "description": "Reference source value"
+  },
+  "breathingWellRef": "Ma, X., Yue, Z. Q., Gong, Z. Q., Zhang, H., Duan, N. Y., Shi, Y. T., Wei, G. X., & Li, Y. F. (2017). The effect of diaphragmatic breathing on attention, negative affect and stress in healthy adults. Frontiers in Psychology, 8(JUN). https://doi.org/10.3389/fpsyg.2017.00874",
+  "@breathingWellRef": {
+    "description": "Breathing well reference"
+  },
+  "shortMeditationRef": "Zuo, X., Tang, Y., Chen, Y., & Zhou, Z. (2023). The efficacy of mindfulness-based interventions on mental health among university students: a systematic review and meta-analysis. In Frontiers in Public Health (Vol. 11). Frontiers Media SA. https://doi.org/10.3389/fpubh.2023.1259250",
+  "@shortMeditationRef": {
+    "description": "Short meditation reference"
+  },
+  "physicalActivityRef": "Wang, X., Cai, Z. dong, Jiang, W. ting, Fang, Y. yan, Sun, W. xin, & Wang, X. (2022). Systematic review and meta-analysis of the effects of exercise on depression in adolescents. In Child and Adolescent Psychiatry and Mental Health (Vol. 16, Issue 1). BioMed Central Ltd. https://doi.org/10.1186/s13034-022-00453-2",
+  "@physicalActivityRef": {
+    "description": "Physical activity reference"
+  },
+  "socializingRef": "Holt-Lunstad, J. (2022). Social Connection as a Public Health Issue: The Evidence and a Systemic Framework for Prioritizing the \\\"Social\\\" in Social Determinants of Health. Annu. Rev. Public Health, 43, 193-213. https://doi.org/10.1146/annurev-publhealth",
+  "@socializingRef": {
+    "description": "Socializing reference"
+  },
+  "maintainRestRef": "Scott, A. J., Webb, T. L., Martyn-St James, M., Rowse, G., & Weich, S. (2021). Improving sleep quality leads to better mental health: A meta-analysis of randomised controlled trials. In Sleep Medicine Reviews (Vol. 60). W.B. Saunders Ltd. https://doi.org/10.1016/j.smrv.2021.101556",
+  "@maintainRestRef": {
+    "description": "Maintain rest reference"
+  },
+  "doingHobbyRef": "Li, Z., Dai, J., Wu, N., Jia, Y., Gao, J., & Fu, H. (2019). Effect of long working hours on depression and mental well-being among employees in Shanghai: The role of having leisure hobbies. International Journal of Environmental Research and Public Health, 16(24). https://doi.org/10.3390/ijerph16244980",
+  "@doingHobbyRef": {
+    "description": "Doing hobby reference"
+  },
+  "relaxationRef": "Zuo, X., Tang, Y., Chen, Y., & Zhou, Z. (2023). The efficacy of mindfulness-based interventions on mental health among university students: a systematic review and meta-analysis. In Frontiers in Public Health (Vol. 11). Frontiers Media SA. https://doi.org/10.3389/fpubh.2023.1259250",
+  "@relaxationRef": {
+    "description": "Relaxation reference"
+  },
+  "learningStressManagementRef": "Algorani, E. B., & Gupta, V. (2023). Coping Mechanisms. In StatPearls. StatPearls Publishing.",
+  "@learningStressManagementRef": {
+    "description": "Learning stress management reference"
+  }
+}

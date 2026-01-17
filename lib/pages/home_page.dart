@@ -1,10 +1,12 @@
 import 'dart:io';
 import 'package:mystessd/constans.dart';
 import 'package:mystessd/pages/about_page.dart';
+import 'package:mystessd/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuggestionDetails extends StatelessWidget {
   final String suggestion;
@@ -54,54 +56,25 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
   String selectedModel = 'DenseNet201';
   List<String> modelOptions = ['DenseNet201', 'MobileNetV2', 'ResNet50'];
 
-  Map<String, List<Map<String, String>>> suggestions = {
-    'Stress': [
-      {
-        'suggestion': 'Breathing Well',
-        'details':
-            'Take a moment to breathe deeply; focus on your breath for a few minutes to help calm the mind.'
-      },
-      {
-        'suggestion': 'Short Meditation',
-        'details':
-            'Take some time to try a short meditation or mindfulness practice; it can reduce stress and enhance mental clarity.'
-      },
-      {
-        'suggestion': 'Engage in physical activity',
-        'details':
-            'Physical activity is key to reducing stress; a short walk or a yoga session can help relax the body and mind.'
-      },
-      {
-        'suggestion': 'Socializing with Others',
-        'details':
-            'Talking to friends or family can provide the emotional support you need to feel better.'
-      },
-    ],
-    'Not Stressed': [
-      {
-        'suggestion': 'Continue to maintain your resting time',
-        'details':
-            'Maintaining a balance between work and rest is important to prevent stress; remember to take time for yourself.'
-      },
-      {
-        'suggestion': 'Doing a Hobby',
-        'details':
-            'Engaging in hobbies or activities that you enjoy can serve as a means of distraction from the daily pressures.'
-      },
-      {
-        'suggestion': 'Relaxation',
-        'details':
-            'Even if you may not feel stressed at the moment, regular relaxation practices such as yoga can help maintain peace of mind.'
-      },
-      {
-        'suggestion': 'Learning to Manage Stress',
-        'details':
-            'Education about stress and how to manage it can help you stay calm in challenging situations in the future.'
-      },
-    ]
-  };
+  // This will be initialized in build method using localized strings
+  Map<String, List<Map<String, String>>> suggestions = {};
 
   int? _expandedIndex;
+
+  // Helper method to get localized output
+  String getLocalizedOutput(BuildContext context, String output) {
+    final l10n = AppLocalizations.of(context)!;
+    switch (output) {
+      case 'Stress':
+        return l10n.stressed;
+      case 'Not Stressed':
+        return l10n.notStressed;
+      case 'Face not detected':
+        return l10n.faceNotDetected;
+      default:
+        return output;
+    }
+  }
 
   @override
   void initState() {
@@ -197,8 +170,9 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        final l10n = AppLocalizations.of(context)!;
         return AlertDialog(
-          title: Text('Choose a method'),
+          title: Text(l10n.chooseMethod),
           content: SingleChildScrollView(
             child: ListBody(
               children: modelOptions
@@ -227,11 +201,42 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    // Initialize suggestions with localized strings
+    suggestions = {
+      l10n.stressed: [
+        {
+          'suggestion': l10n.breathingWell,
+          'details': l10n.breathingWellDetails
+        },
+        {
+          'suggestion': l10n.shortMeditation,
+          'details': l10n.shortMeditationDetails
+        },
+        {
+          'suggestion': l10n.physicalActivity,
+          'details': l10n.physicalActivityDetails
+        },
+        {'suggestion': l10n.socializing, 'details': l10n.socializingDetails},
+      ],
+      l10n.notStressed: [
+        {'suggestion': l10n.maintainRest, 'details': l10n.maintainRestDetails},
+        {'suggestion': l10n.doingHobby, 'details': l10n.doingHobbyDetails},
+        {'suggestion': l10n.relaxation, 'details': l10n.relaxationDetails},
+        {
+          'suggestion': l10n.learningStressManagement,
+          'details': l10n.learningStressManagementDetails
+        },
+      ]
+    };
+
     return Scaffold(
       backgroundColor: Colors.indigo[50],
       appBar: AppBar(
-        title: Text('Check Stress'),
+        title: Text(l10n.checkStress),
         actions: [
+          LanguageSwitcher(),
           IconButton(
             onPressed: _showMethodSelectionDialog,
             icon: Icon(Icons.settings),
@@ -260,7 +265,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
               physics: ClampingScrollPhysics(),
               children: [
                 Text(
-                  "Check Stress",
+                  l10n.checkStress,
                   style: textStyle.copyWith(
                     fontSize: MediaQuery.of(context).size.width * 0.08,
                     fontWeight: FontWeight.bold,
@@ -329,7 +334,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                               ),
                             ),
                             child: Text(
-                              'Upload a Photo',
+                              l10n.uploadPhoto,
                               style: whiteTextStyle.copyWith(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -346,7 +351,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                               ),
                             ),
                             child: Text(
-                              'Take a Photo',
+                              l10n.takePhoto,
                               style: whiteTextStyle.copyWith(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
@@ -363,7 +368,8 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                   Column(
                     children: [
                       Text(
-                        'Prediction of your face: $output',
+                        l10n.predictionResult(
+                            getLocalizedOutput(context, output)),
                         style: textStyle.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -372,7 +378,8 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                       ),
                       if (output != "Face not detected")
                         Text(
-                          'With accuracy: ${(confidence * 100).toStringAsFixed(2)}%',
+                          l10n.accuracyResult(
+                              (confidence * 100).toStringAsFixed(2)),
                           style: textStyle.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -381,11 +388,12 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                         ),
                       SizedBox(height: 10),
                       if (output != "Face not detected" &&
-                          suggestions.containsKey(output))
+                          suggestions
+                              .containsKey(getLocalizedOutput(context, output)))
                         Column(
                           children: [
                             Text(
-                              'Suggestion:',
+                              l10n.suggestion,
                               style: textStyle.copyWith(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
@@ -399,7 +407,8 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                                   _expandedIndex = isExpanded ? -1 : index;
                                 });
                               },
-                              children: suggestions[output]!
+                              children: suggestions[
+                                      getLocalizedOutput(context, output)]!
                                   .asMap()
                                   .entries
                                   .map<ExpansionPanelRadio>(
@@ -440,7 +449,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
                 Divider(thickness: 1, color: Colors.grey),
                 SizedBox(height: 10),
                 Text(
-                  '© ${DateTime.now().year} Universitas Muhammadiyah Yogyakarta',
+                  '© 2024 Universitas Muhammadiyah Yogyakarta',
                   style: secondaryTextStyle.copyWith(
                     fontSize: 12,
                     fontStyle: FontStyle.italic,
