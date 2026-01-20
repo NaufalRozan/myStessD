@@ -49,6 +49,12 @@ android {
         targetSdkVersion 36
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        
+        ndk {
+            // Hanya include ARM (hampir semua device Android modern)
+            // Menghemat ~40% ukuran dengan menghapus x86/x86_64
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
     }
 
     buildTypes {
@@ -57,13 +63,24 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            
+            // Nonaktifkan debug symbols untuk mengurangi ukuran
+            ndk {
+                debugSymbolLevel 'NONE'
+            }
         }
     }
+
+    assetPacks = [":ai_models"]
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    implementation "com.google.android.play:core:1.10.3"
+    implementation "com.google.android.play:core-ktx:1.8.1"
+}

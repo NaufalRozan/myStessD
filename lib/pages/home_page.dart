@@ -5,7 +5,7 @@ import 'package:mystessd/widgets/language_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_v2/tflite_v2.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_face_detection/google_mlkit_face_detection.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuggestionDetails extends StatelessWidget {
@@ -99,13 +99,14 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
 
   runModel(File imageFile) async {
     if (!isModelBusy) {
+      FaceDetector? faceDetector;
       try {
         setState(() {
           isModelBusy = true;
         });
 
         final inputImage = InputImage.fromFilePath(imageFile.path);
-        final faceDetector = GoogleMlKit.vision.faceDetector();
+        faceDetector = FaceDetector(options: FaceDetectorOptions());
         final faces = await faceDetector.processImage(inputImage);
 
         if (faces.isNotEmpty) {
@@ -135,6 +136,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
       } catch (e) {
         print("Error running model: $e");
       } finally {
+        faceDetector?.close();
         setState(() {
           isModelBusy = false;
         });

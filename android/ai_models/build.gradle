@@ -1,0 +1,10 @@
+plugins {
+    id 'com.android.asset-pack'
+}
+
+assetPack {
+    packName = "ai_models" // Nama asset pack
+    dynamicDelivery {
+        deliveryType = "install-time" // Model akan diinstal bersamaan dengan app
+    }
+}
