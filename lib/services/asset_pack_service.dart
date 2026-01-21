@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 /// Helper class untuk mengakses model AI dari Play Asset Delivery
 class AssetPackService {
   static const MethodChannel _channel =
-      MethodChannel('com.example.mystessd/assetpack');
+      MethodChannel('com.umy.mystessd/assetpack');
 
   /// Mendapatkan path absolut ke file model
   ///

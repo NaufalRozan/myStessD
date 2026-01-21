@@ -1,4 +1,4 @@
-package com.example.emotion_detection_app
+package com.umy.mystessd
 
 import android.content.Context
 import com.google.android.play.core.assetpacks.AssetPackManager

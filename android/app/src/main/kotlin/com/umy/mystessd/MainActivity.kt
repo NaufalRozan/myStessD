@@ -1,11 +1,11 @@
-package com.example.emotion_detection_app
+package com.umy.mystessd
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity: FlutterActivity() {
-    private val CHANNEL = "com.example.mystessd/assetpack"
+    private val CHANNEL = "com.umy.mystessd/assetpack"
     private lateinit var assetPackHelper: AssetPackHelper
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {

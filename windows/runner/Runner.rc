@@ -89,11 +89,11 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
+            VALUE "CompanyName", "com.umy" "\0"
             VALUE "FileDescription", "emotion_detection_app" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "emotion_detection_app" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.umy. All rights reserved." "\0"
             VALUE "OriginalFilename", "emotion_detection_app.exe" "\0"
             VALUE "ProductName", "emotion_detection_app" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
