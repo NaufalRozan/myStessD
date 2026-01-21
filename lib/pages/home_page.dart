@@ -87,7 +87,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
     try {
       String? modelPath;
       String labelsPath = "assets/labelsDNmod.txt"; // Default value
-      
+
       // Tentukan model dan labels berdasarkan pilihan
       if (selectedModel == 'DenseNet201') {
         modelPath = await AssetPackService.getModelPath('modelDNmod.tflite');
@@ -99,7 +99,7 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
         modelPath = await AssetPackService.getModelPath('modelRNmod.tflite');
         labelsPath = "assets/labelsRNmod.txt";
       }
-      
+
       if (modelPath != null) {
         await Tflite.loadModel(
           model: modelPath,
