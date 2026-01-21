@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:mystessd/constans.dart';
 import 'package:mystessd/pages/about_page.dart';
 import 'package:mystessd/widgets/language_switcher.dart';
+import 'package:mystessd/services/asset_pack_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite_v2/tflite_v2.dart';
@@ -83,17 +84,34 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
   }
 
   Future<void> loadModel() async {
-    if (selectedModel == 'DenseNet201') {
-      await Tflite.loadModel(
-          model: "assets/modelDNmod.tflite", labels: "assets/labelsDNmod.txt");
-    }
-    if (selectedModel == 'MobileNetV2') {
-      await Tflite.loadModel(
-          model: "assets/modelMN.tflite", labels: "assets/labelsMNmod.txt");
-    }
-    if (selectedModel == 'ResNet50') {
-      await Tflite.loadModel(
-          model: "assets/modelRNmod.tflite", labels: "assets/labelsRNmod.txt");
+    try {
+      String? modelPath;
+      String labelsPath = "assets/labelsDNmod.txt"; // Default value
+      
+      // Tentukan model dan labels berdasarkan pilihan
+      if (selectedModel == 'DenseNet201') {
+        modelPath = await AssetPackService.getModelPath('modelDNmod.tflite');
+        labelsPath = "assets/labelsDNmod.txt";
+      } else if (selectedModel == 'MobileNetV2') {
+        modelPath = await AssetPackService.getModelPath('modelMN.tflite');
+        labelsPath = "assets/labelsMNmod.txt";
+      } else if (selectedModel == 'ResNet50') {
+        modelPath = await AssetPackService.getModelPath('modelRNmod.tflite');
+        labelsPath = "assets/labelsRNmod.txt";
+      }
+      
+      if (modelPath != null) {
+        await Tflite.loadModel(
+          model: modelPath,
+          labels: labelsPath,
+        );
+        print('✓ Model loaded from asset pack: $modelPath');
+      } else {
+        print('✗ Failed to load model from asset pack - model tidak tersedia');
+        print('ℹ️  Asset pack hanya tersedia setelah install dari Play Store');
+      }
+    } catch (e) {
+      print('Error loading model: $e');
     }
   }
 
