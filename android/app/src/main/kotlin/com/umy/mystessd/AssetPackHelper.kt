@@ -1,11 +1,9 @@
 package com.umy.mystessd
 
 import android.content.Context
-import com.google.android.play.core.assetpacks.AssetPackManager
-import com.google.android.play.core.assetpacks.AssetPackManagerFactory
-import com.google.android.play.core.assetpacks.AssetPackState
-import com.google.android.play.core.assetpacks.AssetPackStateUpdateListener
+import com.google.android.play.core.assetpacks.*
 import com.google.android.play.core.assetpacks.model.AssetPackStatus
+import com.google.android.play.core.assetpacks.model.AssetPackStorageMethod
 import io.flutter.plugin.common.MethodChannel
 import java.io.File
 
@@ -32,7 +30,7 @@ class AssetPackHelper(private val context: Context) {
      */
     fun isAssetPackReady(): Boolean {
         val location = assetPackManager.getPackLocation(ASSET_PACK_NAME)
-        return location != null && location.packStorageMethod() == com.google.android.play.core.assetpacks.model.AssetPackStorageMethod.STORAGE_FILES
+        return location != null && location.packStorageMethod() == AssetPackStorageMethod.STORAGE_FILES
     }
 
     /**
