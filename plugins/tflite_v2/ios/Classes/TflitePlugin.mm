@@ -17,7 +17,7 @@
 #include "tensorflow/contrib/lite/string_util.h"
 #include "tensorflow/contrib/lite/op_resolver.h"
 #elif defined TFLITE2
-#import "TensorFlowLiteC.h"
+#import <TensorFlowLiteC/TensorFlowLiteC.h>
 #import "metal_delegate.h"
 #else
 #include "tensorflow/lite/kernels/register.h"

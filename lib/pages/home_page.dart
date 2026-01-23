@@ -85,30 +85,46 @@ class _StressDetectionPageState extends State<StressDetectionPage> {
 
   Future<void> loadModel() async {
     try {
-      String? modelPath;
+      String modelPath = '';
       String labelsPath = "assets/labelsDNmod.txt"; // Default value
+      String modelFileName = '';
 
       // Tentukan model dan labels berdasarkan pilihan
       if (selectedModel == 'DenseNet201') {
-        modelPath = await AssetPackService.getModelPath('modelDNmod.tflite');
+        modelFileName = 'modelDNmod.tflite';
         labelsPath = "assets/labelsDNmod.txt";
       } else if (selectedModel == 'MobileNetV2') {
-        modelPath = await AssetPackService.getModelPath('modelMN.tflite');
+        modelFileName = 'modelMN.tflite';
         labelsPath = "assets/labelsMNmod.txt";
       } else if (selectedModel == 'ResNet50') {
-        modelPath = await AssetPackService.getModelPath('modelRNmod.tflite');
+        modelFileName = 'modelRNmod.tflite';
         labelsPath = "assets/labelsRNmod.txt";
       }
 
-      if (modelPath != null) {
+      if (modelFileName.isNotEmpty) {
+        if (Platform.isAndroid)  {
+          // Android: coba dari asset pack dulu (production), fallback ke assets (development)
+          String? assetPackPath =
+              await AssetPackService.getModelPath(modelFileName);
+          if (assetPackPath != null && assetPackPath.isNotEmpty) {
+            modelPath = assetPackPath;
+            print('✓ Loading from asset pack: $modelPath');
+          } else {
+            modelPath = "assets/$modelFileName";
+            print('ℹ️ Asset pack not available, using assets: $modelPath');
+          }
+        } else {
+          // iOS: selalu gunakan assets
+          modelPath = "assets/$modelFileName";
+        }
+
         await Tflite.loadModel(
           model: modelPath,
           labels: labelsPath,
         );
-        print('✓ Model loaded from asset pack: $modelPath');
+        print('✓ Model loaded successfully: $modelPath');
       } else {
-        print('✗ Failed to load model from asset pack - model tidak tersedia');
-        print('ℹ️  Asset pack hanya tersedia setelah install dari Play Store');
+        print('✗ No model selected');
       }
     } catch (e) {
       print('Error loading model: $e');
